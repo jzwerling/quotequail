@@ -30,6 +30,14 @@ FORWARD_MESSAGES = [
 
     # mail.ru forward (Russian)
     u'Пересылаемое сообщение',
+
+    #chinese, qq mail, hotmail, last is from lotus notes
+    u'原始邮件', u'转发邮件信息', u'轉呈者',
+    #japanese
+    u'元のメール', u'電子メール情報の転送', u'フォワーダ', u'転送者', u'元のメッセージ',
+    #korean
+    u'원본 메일', u'전자 메일 정보 전달', u'전달자'
+
 ]
 
 # We yield this pattern to simulate Outlook forward styles. It is also used for
@@ -55,6 +63,13 @@ HEADER_MAP = {
     'de': 'from',
     u'от кого': 'from',
     u'från': 'from',
+    u'发件人': 'from', #cn
+    u'从': 'from', #cn
+    u'差出人': 'from', #jp
+    u'送信者': 'from', #jp
+    u'작성자': 'from', #ko
+    u'보낸 사람': 'from', #ko
+
 
     'to': 'to',
     'an': 'to',
@@ -63,14 +78,26 @@ HEADER_MAP = {
     u'pour': 'to',
     u'кому': 'to',
     u'till': 'to',
+    u'收件人': 'to',  #cn
+    u'送至': 'to', #cn
+    u'宛先': 'to', #jp
+    u'受信者': 'to', #jp
+    u'받는 사람': 'to', #ko
+    u'수신인': 'to', #ko recipient
 
     'cc': 'cc',
     'kopie': 'cc',
     'kopia': 'cc',
+    u'抄送': 'cc', #cn
+    u'副本抄送': 'cc', #cn
+    u'참조': 'cc', #ko
 
     'bcc': 'bcc',
     'cco': 'bcc',
     'blindkopie': 'bcc',
+    u'密送': 'bcc', #cn
+    u'副本密送': 'bcc', #cn
+    u'숨은 참조': 'bcc', #ko
 
     'reply-to': 'reply-to',
     'antwort an': 'reply-to',
@@ -86,6 +113,15 @@ HEADER_MAP = {
     'enviados': 'date',
     'fecha': 'date',
     u'дата': 'date',
+    u'发送时间': 'date', #cn
+    u'发送日期': 'date', #cn
+    u'逸信日時': 'date', #jp
+    u'送信日時': 'date', #jp
+    u'納期': 'date', #jp
+    u'日付': 'date', #jp
+    u'転送日': 'date', #jp
+    u'날짜': 'date', #ko
+    u'날짜/시간': 'date', #ko - datetime
 
     'subject': 'subject',
     'betreff': 'subject',
@@ -94,6 +130,11 @@ HEADER_MAP = {
     'sujet': 'subject',
     u'тема': 'subject',
     u'ämne': 'subject',
+    u'主题': 'subject', #cn
+    u'主旨': 'subject', #cn
+    u'件名': 'subject', #jp
+    u'주제': 'subject', #ko
+    u'제목': 'subject', #ko
 }
 
 COMPILED_PATTERN_MAP = {

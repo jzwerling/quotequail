@@ -99,6 +99,22 @@ def extract_headers(lines, max_wrap_lines):
 
     return hdrs, lines_processed
 
+#not wired up here - this removes chinese date formatting characters, to enable parsing the date into a datetime
+def format_cjk_date(line):
+    line = re.sub(r'\(?星期.\)?', '', line)
+
+    line = re.sub(r'(年|月)', '-', line)
+    line = re.sub(r'(日)', '', line)
+
+    if "上午" in line:
+        line += "am"
+    if  "下午" in line:
+        line += "pm"
+
+    line = re.sub(r'(上午|下午)', '', line)
+    
+    return line
+
 def parse_reply(line):
     """
     Parses the given reply line ("On DATE, USER wrote:") and returns a
